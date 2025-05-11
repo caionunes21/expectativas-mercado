@@ -55,9 +55,9 @@ cambio_expec['Data'] = pd.to_datetime(cambio_expec['Data'], format = '%Y-%m-%d')
 
 
 plt.figure(figsize = [9,4])
-plt.plot(cambio_expec['Data'], cambio_expec['Media'], color='green', label='Taxa de Câmbio')
-plt.plot(ipca_expec['Data'], ipca_expec['Media'], color='red', label='Taxa de IPCA')
-plt.plot(selic_expec['Data'], selic_expec['Media'], color='blue', label='Taxa Selic')
+plt.plot(cambio_expec['Data'], cambio_expec['Mediana'], color='green', label='Taxa de Câmbio')
+plt.plot(ipca_expec['Data'], ipca_expec['Mediana'], color='red', label='Taxa de IPCA')
+plt.plot(selic_expec['Data'], selic_expec['Mediana'], color='blue', label='Taxa Selic')
 plt.ylabel('Taxa (%)', fontsize = 10)
 plt.xlabel('Mediana')
 plt.title('Expectativa Boletim Focus')
