@@ -16,14 +16,14 @@ Este projeto visa automatizar a coleta, análise e visualização das expectativ
 !pip install python-bcb
 from bcb import Expectativas
 import pandas as pd
-import matplotlib.pyplot as plt   ## Extraindo dados com 'Expectativas'
+import matplotlib.pyplot as plt   
 
-exp = Expectativas()           # Para ver quais são os tipos de bases de expectativas
+exp = Expectativas()           
 exp.describe()
 
 exp = exp.get_endpoint('ExpectativasMercadoAnuais')
 
-## FILTRAGEM DAS COLUNAS QUE VAMOS UTILIZAR!
+
 ipca_expec = (exp.query()
   .filter(exp.Indicador == 'IPCA', exp.DataReferencia == 2025)              
   .filter(exp.Data >= '2024-01-01')                                        
@@ -55,7 +55,7 @@ cambio_expec['Data'] = pd.to_datetime(cambio_expec['Data'], format = '%Y-%m-%d')
 
 
 plt.figure(figsize = [9,4])
-plt.plot(cambio_expec['Data'], cambio_expec['Media'], color='green', label='Taxa de Câmbio')  # Plot 'Media' in green
+plt.plot(cambio_expec['Data'], cambio_expec['Media'], color='green', label='Taxa de Câmbio')
 plt.plot(ipca_expec['Data'], ipca_expec['Media'], color='red', label='Taxa de IPCA')
 plt.plot(selic_expec['Data'], selic_expec['Media'], color='blue', label='Taxa Selic')
 plt.ylabel('Taxa (%)', fontsize = 10)
